@@ -1,7 +1,7 @@
 import { Request, Response } from "express";
 import User from "../model/User";
 import bcrypt from "bcrypt";
-import jwt from "jsonwebtoken";
+import jwt, { JwtPayload } from "jsonwebtoken";
 
 export const register = async (req: Request, res: Response) => {
   const { username, email, password } = req.body;
@@ -68,6 +68,44 @@ export const login = async (req: Request, res: Response) => {
   return res.status(200).json({ accessToken });
 };
 
-export const logout = async (req: Request, res: Response) => {};
+export const logout = async (req: Request, res: Response) => {
+  const { refreshToken } = req.cookies;
 
-export const refresh = async (req: Request, res: Response) => {};
+  if (!refreshToken) {
+    return res.sendStatus(203);
+  }
+
+  res.clearCookie("refreshToken");
+
+  return res.status(200).json({ message: "Logged out successfully." });
+};
+
+export const refresh = async (req: Request, res: Response) => {
+  const { refreshToken } = req.cookies;
+
+  if (!refreshToken) {
+    return res.status(401).json({ error: "Unauthorized (No token found!)" });
+  }
+
+  const decoded = jwt.verify(refreshToken, process.env.REFRESH_TOKEN);
+
+  if (!decoded) {
+    return res.status(401).json({ error: "Unauthorized (Invalid token!)" });
+  }
+
+  const foundUser = await User.findById((decoded as JwtPayload).userId)
+    .lean()
+    .exec();
+
+  if (!foundUser) {
+    return res.status(401).json({ error: "Unauthorized (Invalid token!)" });
+  }
+
+  const accessToken = jwt.sign(
+    { userId: foundUser._id, isAdmin: foundUser.isAdmin },
+    process.env.ACCESS_TOKEN,
+    { expiresIn: "15m" }
+  );
+
+  return res.status(200).json({ accessToken });
+};

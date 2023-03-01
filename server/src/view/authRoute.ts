@@ -10,7 +10,7 @@ router.use((req: Request, res: Response, next: NextFunction) => {
 
 router.route("/register").post(register);
 router.route("/login").post(login);
-router.route("/logout").post(logout);
-router.route("/refresh").post(refresh);
+router.route("/logout").get(logout);
+router.route("/refresh").get(refresh);
 
 export default router;
