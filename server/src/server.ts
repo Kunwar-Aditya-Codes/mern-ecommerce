@@ -7,6 +7,7 @@ import cookieParser from "cookie-parser";
 
 import connectDb from "./utils/connectDb";
 import authRoute from "./view/authRoute";
+import adminRoute from "./view/adminRoute";
 
 connectDb();
 
@@ -18,6 +19,7 @@ app.use(cors());
 app.use(cookieParser());
 
 app.use("/api/auth", authRoute);
+app.use("/api/admin", adminRoute);
 
 mongoose.connection.once("open", () => {
   console.log("Connected to db!");
