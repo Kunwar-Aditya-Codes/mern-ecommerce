@@ -21,6 +21,7 @@ const verifyJwt = (req: Request, res: Response, next: NextFunction) => {
     }
 
     req.userId = decoded.userId;
+    req.isAdmin = decoded.isAdmin;
 
     next();
   } catch (e) {

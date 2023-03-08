@@ -5,7 +5,11 @@ import Product from '../model/Product';
 //@route    POST /api/product/protected
 //@access   Private
 export const createProduct = async (req: Request, res: Response) => {
-  console.log(req.userId);
+  const isAdmin = req.isAdmin;
+
+  if (!isAdmin) {
+    return res.status(401).json({ error: 'Unauthorized' });
+  }
 
   const {
     productName,
@@ -63,8 +67,8 @@ export const getAllProducts = async (req: Request, res: Response) => {
 };
 
 //@desc     Update a product
-//@route    PUT /api/product/protected
-//@access   Private
+//@route    PUT /api/product
+//@access   Public
 export const updateProduct = async (req: Request, res: Response) => {
   const { productName, productPrice, productQuantity, productId } = req.body;
 
@@ -91,6 +95,12 @@ export const updateProduct = async (req: Request, res: Response) => {
 //@route    DELETE /api/product/protected
 //@access   Private
 export const deleteProduct = async (req: Request, res: Response) => {
+  const isAdmin = req.isAdmin;
+
+  if (!isAdmin) {
+    return res.status(401).json({ error: 'Unauthorized' });
+  }
+
   const { productId } = req.body;
 
   if (!productId) {

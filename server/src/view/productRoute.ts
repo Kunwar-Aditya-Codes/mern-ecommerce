@@ -16,12 +16,8 @@ router.use((req: Request, res: Response, next: NextFunction) => {
 
 router.use(verifyJwt);
 
-router
-  .route('/protected')
-  .post(createProduct)
-  .put(updateProduct)
-  .delete(deleteProduct);
+router.route('/protected').post(createProduct).delete(deleteProduct);
 
-router.route('/').get(getAllProducts);
+router.route('/').get(getAllProducts).put(updateProduct);
 
 export default router;
