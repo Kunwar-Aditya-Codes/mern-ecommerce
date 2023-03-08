@@ -1,7 +1,12 @@
 import { Request, Response } from 'express';
 import Product from '../model/Product';
 
+//@desc     Create a new product
+//@route    POST /api/product/protected
+//@access   Private
 export const createProduct = async (req: Request, res: Response) => {
+  console.log(req.userId);
+
   const {
     productName,
     productPrice,
@@ -48,12 +53,18 @@ export const createProduct = async (req: Request, res: Response) => {
   res.status(201).json({ message: 'Product created successfully.' });
 };
 
+//@desc     Get all products
+//@route    GET /api/product
+//@access   Public
 export const getAllProducts = async (req: Request, res: Response) => {
   const products = await Product.find().lean().exec();
 
   res.status(200).json({ products });
 };
 
+//@desc     Update a product
+//@route    PUT /api/product/protected
+//@access   Private
 export const updateProduct = async (req: Request, res: Response) => {
   const { productName, productPrice, productQuantity, productId } = req.body;
 
@@ -76,6 +87,9 @@ export const updateProduct = async (req: Request, res: Response) => {
   res.status(200).json({ message: 'Product updated successfully.' });
 };
 
+//@desc     Delete a product
+//@route    DELETE /api/product/protected
+//@access   Private
 export const deleteProduct = async (req: Request, res: Response) => {
   const { productId } = req.body;
 
@@ -87,4 +101,3 @@ export const deleteProduct = async (req: Request, res: Response) => {
 
   res.status(200).json({ message: 'Product deleted successfully.' });
 };
-

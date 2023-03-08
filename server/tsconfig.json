@@ -1,12 +1,22 @@
 {
   "compilerOptions": {
     "module": "NodeNext",
-    "moduleResolution": "nodenext",
-    "target": "es6",
+    "moduleResolution": "NodeNext",
+    "target": "ES2020",
     "sourceMap": true,
     "outDir": "dist",
+    "rootDir": "src",
+    "noImplicitAny": true,
+    "strict": true,
+    "allowSyntheticDefaultImports": true,
     "esModuleInterop": true,
-    "alwaysStrict": true
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true,
+    "skipLibCheck": true,
+    "typeRoots": ["./src/types"]
+  },
+  "ts-node": {
+    "esm": true
   },
   "include": ["src/**/*"]
 }
