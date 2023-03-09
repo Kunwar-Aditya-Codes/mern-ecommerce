@@ -8,6 +8,7 @@ import cookieParser from 'cookie-parser';
 import connectDb from './utils/connectDb';
 import authRoute from './view/authRoute';
 import productRoute from './view/productRoute';
+import userRoute from './view/userRoute';
 
 connectDb();
 
@@ -20,6 +21,7 @@ app.use(cookieParser());
 
 app.use('/api/auth', authRoute);
 app.use('/api/product', productRoute);
+app.use('/api/user', userRoute);
 
 mongoose.connection.once('open', () => {
   console.log('Connected to db!');

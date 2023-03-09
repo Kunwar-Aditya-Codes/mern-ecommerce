@@ -6,7 +6,11 @@ import { Request, Response } from 'express';
 // @route    GET /api/user/profile
 // @access   Private
 export const getUserProfile = async (req: Request, res: Response) => {
-  const user = await User.findById(req.userId).lean().exec();
+  const user = await User.findById(req.userId)
+    .select('-password')
+    .populate('orders', 'orderItems')
+    .lean()
+    .exec();
 
   if (!user) {
     return res.status(404).json({ error: 'User not found.' });
@@ -21,15 +25,27 @@ export const getUserProfile = async (req: Request, res: Response) => {
 export const createOrder = async (req: Request, res: Response) => {
   const { userId, orderItems, shippingAddress } = req.body;
 
-  if (!userId || !orderItems || !shippingAddress) {
+  if (!orderItems || !shippingAddress) {
     return res.status(400).json({ error: 'Please fill all the fields.' });
   }
 
   const newOrder = await Order.create({
-    user: userId,
+    user: userId || req.userId,
     orderItems,
     shippingAddress,
   });
+
+  await User.findByIdAndUpdate(
+    req.userId,
+    {
+      $push: {
+        orders: newOrder._id,
+      },
+    },
+    {
+      new: true,
+    }
+  );
 
   res.status(201).json({ message: 'Order created successfully.', newOrder });
 };

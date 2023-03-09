@@ -1,23 +1,22 @@
 import express, { Request, Response, NextFunction } from 'express';
 import {
-  createProduct,
-  deleteProduct,
-  getAllProducts,
-  updateProduct,
-} from '../controller/productController';
+  createOrder,
+  getUserProfile,
+  orderHistory,
+} from '../controller/userController';
 import verifyJwt from '../middleware/verifyJwt';
 
 const router = express.Router();
 
 router.use((req: Request, res: Response, next: NextFunction) => {
-  console.log('Product route');
+  console.log('User route');
   next();
 });
 
 router.use(verifyJwt);
 
-router.route('/protected').post(createProduct).delete(deleteProduct);
-
-router.route('/').get(getAllProducts).put(updateProduct);
+router.route('/profile').get(getUserProfile);
+router.route('/order-history').get(orderHistory);
+router.route('/order').post(createOrder);
 
 export default router;
