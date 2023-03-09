@@ -19,6 +19,7 @@ export const getUserProfile = async (req: Request, res: Response) => {
   res.status(200).json({ user });
 };
 
+// ! Update later with stripe payment gateway integration
 //@desc     Create a new order
 //@route    POST /api/user/order
 //@access   Private
