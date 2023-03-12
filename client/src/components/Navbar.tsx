@@ -5,7 +5,7 @@ const Navbar = () => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
 
   return (
-    <div className='rounded-md bg-zinc-100 p-4 shadow-md'>
+    <div className='rounded-md bg-zinc-100 p-4 shadow-sm'>
       <div className='flex items-center justify-between '>
         <div>
           <h1 className='text-lg lg:text-2xl'>Mern Store</h1>
