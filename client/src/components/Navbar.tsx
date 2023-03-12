@@ -1,4 +1,8 @@
-import { Bars3Icon, ShoppingBagIcon } from '@heroicons/react/24/solid';
+import {
+  Bars3Icon,
+  ShoppingBagIcon,
+  UserIcon,
+} from '@heroicons/react/24/solid';
 import { useState } from 'react';
 
 const Navbar = () => {
@@ -12,8 +16,14 @@ const Navbar = () => {
         </div>
         <div className='flex items-center space-x-4 lg:space-x-8'>
           <div>
-            <button className='hidden rounded-md bg-amber-600 px-8 py-2 font-light text-white shadow-md md:inline  md:text-lg'>
-              Login
+            <button className='flex items-center'>
+              <p className='hidden rounded-md bg-amber-600 px-8 py-2 font-light text-white shadow-md md:inline  md:text-lg'>
+                Login
+              </p>
+              <UserIcon
+                title='Login'
+                className='h-6 w-6 rounded-full bg-amber-600 p-1 text-white md:hidden'
+              />
             </button>
           </div>
 
