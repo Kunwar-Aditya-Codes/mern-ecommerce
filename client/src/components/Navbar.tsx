@@ -12,7 +12,7 @@ const Navbar = () => {
         </div>
         <div className='flex items-center space-x-4 lg:space-x-8'>
           <div>
-            <button className='hidden rounded-md bg-zinc-200 px-8 py-2 font-light shadow-md md:inline  md:text-lg'>
+            <button className='hidden rounded-md bg-amber-600 px-8 py-2 font-light text-white shadow-md md:inline  md:text-lg'>
               Login
             </button>
           </div>
