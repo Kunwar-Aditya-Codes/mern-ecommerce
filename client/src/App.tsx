@@ -2,6 +2,7 @@ import { Routes, Route } from 'react-router-dom';
 import Layout from './components/Layout';
 import Home from './pages/Home';
 import Login from './pages/Login';
+import Products from './pages/Products';
 import Register from './pages/Register';
 
 function App() {
@@ -11,6 +12,7 @@ function App() {
         <Route index path='/' element={<Home />} />
         <Route path='login' element={<Login />} />
         <Route path='register' element={<Register />} />
+        <Route path='items' element={<Products />} />
       </Route>
     </Routes>
   );
