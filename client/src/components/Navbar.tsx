@@ -4,6 +4,7 @@ import {
   UserIcon,
 } from '@heroicons/react/24/solid';
 import { useState } from 'react';
+import { Link } from 'react-router-dom';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
@@ -12,11 +13,13 @@ const Navbar = () => {
     <div className='rounded-md bg-zinc-100 p-4 shadow-sm'>
       <div className='flex items-center justify-between '>
         <div>
-          <h1 className='text-lg lg:text-2xl'>Mern Store</h1>
+          <Link to='/'>
+            <h1 className='text-lg lg:text-2xl'>Mern Store</h1>
+          </Link>
         </div>
         <div className='flex items-center space-x-4 lg:space-x-8'>
           <div>
-            <button className='flex items-center'>
+            <Link to='/login' className='flex items-center'>
               <p className='hidden rounded-md bg-amber-600 px-8 py-2 font-light text-white shadow-md md:inline  md:text-lg'>
                 Login
               </p>
@@ -24,7 +27,7 @@ const Navbar = () => {
                 title='Login'
                 className='h-6 w-6 rounded-full bg-amber-600 p-1 text-white md:hidden'
               />
-            </button>
+            </Link>
           </div>
 
           <ShoppingBagIcon className='h-5 w-5  lg:h-6 lg:w-6' />
