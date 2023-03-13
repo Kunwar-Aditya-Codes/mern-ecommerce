@@ -31,7 +31,9 @@ const Navbar = () => {
           </div>
 
           <ShoppingBagIcon className='h-5 w-5  lg:h-6 lg:w-6' />
-          <div className='relative'>
+
+          {/* Sidebar */}
+          {/* <div className='relative'>
             <div>
               <Bars3Icon
                 onClick={() => setIsOpen(!isOpen)}
@@ -55,7 +57,7 @@ const Navbar = () => {
                 Profile
               </li>
             </div>
-          </div>
+          </div> */}
         </div>
       </div>
     </div>
