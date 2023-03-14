@@ -14,7 +14,9 @@ const Navbar = () => {
       <div className='flex items-center justify-between '>
         <div>
           <Link to='/'>
-            <h1 className='text-lg lg:text-2xl'>Mern Store</h1>
+            <h1 className='text-lg font-bold uppercase tracking-wider lg:text-2xl'>
+              Mern Store
+            </h1>
           </Link>
         </div>
         <div className='flex items-center space-x-4 lg:space-x-8'>

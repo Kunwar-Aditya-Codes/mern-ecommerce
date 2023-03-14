@@ -10,7 +10,7 @@ const Cart = () => {
         <CartCard />
       </div>
 
-      <div className='mt-4 h-fit w-full  flex-[0.4] space-y-4 rounded-md bg-zinc-100  p-4 shadow-md md:space-y-6 lg:ml-4'>
+      <div className='mt-4 h-fit w-full flex-[0.4] space-y-4 rounded-md bg-zinc-100  p-4 shadow-md md:space-y-6 lg:ml-4'>
         <h1 className='border-b border-amber-600 pb-2 text-center text-2xl font-medium tracking-wide'>
           Subtotal
         </h1>
