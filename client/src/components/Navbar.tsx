@@ -30,7 +30,9 @@ const Navbar = () => {
             </Link>
           </div>
 
-          <ShoppingBagIcon className='h-5 w-5  lg:h-6 lg:w-6' />
+          <Link to='/cart'>
+            <ShoppingBagIcon className='h-5 w-5  lg:h-6 lg:w-6' />
+          </Link>
 
           {/* Sidebar */}
           {/* <div className='relative'>
