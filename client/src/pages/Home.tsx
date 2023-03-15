@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom';
 
 const Home = () => {
   return (
-    <div className='flex flex-grow  bg-[url("hero.jpg")] bg-cover bg-center bg-no-repeat bg-blend-color '>
+    <div className='flex flex-grow  bg-[url("hero.webp")] bg-cover bg-center bg-no-repeat bg-blend-color '>
       <div className='flex flex-grow flex-col items-center justify-center  space-y-8 bg-black/80'>
         <h1 className=' text-center text-4xl font-bold uppercase text-zinc-100 md:text-5xl lg:text-6xl xl:text-7xl'>
           Mern Store

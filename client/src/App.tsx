@@ -1,9 +1,9 @@
 import { Routes, Route } from 'react-router-dom';
 import AdminLayout from './components/AdminLayout';
-import DashboardSidebar from './components/DashboardSidebar';
 import Layout from './components/Layout';
-import Dashboard from './pages/Admin/Dashboard';
+import ProductDashboard from './pages/Admin/ProductDashboard';
 import Cart from './pages/Cart';
+import ErrorPage from './pages/ErrorPage';
 import Home from './pages/Home';
 import Login from './pages/Login';
 import Products from './pages/Products';
@@ -18,9 +18,10 @@ function App() {
         <Route path='register' element={<Register />} />
         <Route path='items' element={<Products />} />
         <Route path='cart' element={<Cart />} />
-        <Route path='admin' element={<AdminLayout />}>
-          <Route path='dashboard' element={<Dashboard />} />
+        <Route path='admin/dashboard' element={<AdminLayout />}>
+          <Route index element={<ProductDashboard />} />
         </Route>
+        <Route path='*' element={<ErrorPage />} />
       </Route>
     </Routes>
   );
