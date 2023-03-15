@@ -28,7 +28,8 @@ const Register = () => {
             onChange={handleChange}
             name='username'
             placeholder='Enter your username'
-            className='w-full rounded-md border-2 border-amber-600 px-4 py-3 outline-none'
+            className='w-full rounded-md border-2 border-purple-600
+ px-4 py-3 outline-none'
           />
           <input
             type='email'
@@ -36,7 +37,8 @@ const Register = () => {
             onChange={handleChange}
             name='email'
             placeholder='Enter your email'
-            className='w-full rounded-md border-2 border-amber-600 px-4 py-3 outline-none'
+            className='w-full rounded-md border-2 border-purple-600
+ px-4 py-3 outline-none'
           />
           <input
             type='password'
@@ -44,12 +46,14 @@ const Register = () => {
             onChange={handleChange}
             name='password'
             placeholder='Enter your password'
-            className='w-full rounded-md border-2 border-amber-600 px-4 py-3 outline-none'
+            className='w-full rounded-md border-2 border-purple-600
+ px-4 py-3 outline-none'
           />
 
           <button
             disabled={true}
-            className='w-full rounded-md bg-amber-600 py-3 text-white disabled:bg-zinc-400'
+            className='w-full rounded-md bg-purple-600
+ py-3 text-white disabled:bg-zinc-400'
           >
             Register
           </button>
@@ -60,7 +64,9 @@ const Register = () => {
             Already have account?
             <Link
               to='/login'
-              className='ml-1 font-normal text-amber-600 underline decoration-amber-600  underline-offset-2'
+              className='ml-1 font-normal text-purple-600
+ underline decoration-purple-600
+  underline-offset-2'
             >
               Login here!
             </Link>

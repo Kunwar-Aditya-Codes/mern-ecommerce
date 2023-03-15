@@ -1,5 +1,6 @@
 import {
   Bars3Icon,
+  LockClosedIcon,
   ShoppingBagIcon,
   UserIcon,
 } from '@heroicons/react/24/solid';
@@ -22,12 +23,23 @@ const Navbar = () => {
         <div className='flex items-center space-x-4 lg:space-x-8'>
           <div>
             <Link to='/login' className='flex items-center'>
-              <p className='hidden rounded-md bg-amber-600 px-8 py-2 font-light text-white shadow-md md:inline  md:text-lg'>
+              <p className='hidden rounded-md bg-purple-600 px-8 py-2 font-light text-white shadow-md md:inline  md:text-lg'>
                 Login
               </p>
               <UserIcon
                 title='Login'
-                className='h-6 w-6 rounded-full bg-amber-600 p-1 text-white md:hidden'
+                className='h-6 w-6 rounded-full bg-purple-600 p-1 text-white md:hidden'
+              />
+            </Link>
+          </div>
+          <div>
+            <Link to='/admin/dashboard' className='flex items-center'>
+              <p className='hidden rounded-md border border-purple-600 px-8 py-2 font-light shadow-md md:inline  md:text-lg'>
+                Admin
+              </p>
+              <LockClosedIcon
+                title='Login'
+                className='h-6 w-6 rounded-full bg-purple-600 p-1 text-white md:hidden'
               />
             </Link>
           </div>

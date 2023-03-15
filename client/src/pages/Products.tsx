@@ -15,7 +15,10 @@ const Products = () => {
           <option value=''>Food</option>
         </select>
 
-        <button className='w-full rounded-md bg-amber-600 p-2 text-white md:w-[8rem]'>
+        <button
+          className='w-full rounded-md bg-purple-600
+ p-2 text-white md:w-[8rem]'
+        >
           Search
         </button>
       </div>
